@@ -1,2 +1,3 @@
-# maze-solver
-Maze Solver GUI
+# Maze Solver
+
+Maze Solver GUI application in Python.
