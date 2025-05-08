@@ -40,26 +40,30 @@ class Cell:
             self._y1 + half_distance(self._y1, self._y2),
         )
 
-        lines_to_draw = []
         line_left = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
         line_right = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
         line_top = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
         line_bottom = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
 
         if self.has_left_wall:
-            lines_to_draw.append(line_left)
+            self._window.draw_line(line_left)
+        else:
+            self._window.draw_line(line_left, "white")
 
         if self.has_right_wall:
-            lines_to_draw.append(line_right)
+            self._window.draw_line(line_right)
+        else:
+            self._window.draw_line(line_right, "white")
 
         if self.has_top_wall:
-            lines_to_draw.append(line_top)
+            self._window.draw_line(line_top)
+        else:
+            self._window.draw_line(line_top, "white")
 
         if self.has_bottom_wall:
-            lines_to_draw.append(line_bottom)
-
-        for line in lines_to_draw:
-            self._window.draw_line(line)
+            self._window.draw_line(line_bottom)
+        else:
+            self._window.draw_line(line_bottom, "white")
 
     def draw_move(self, to_cell, undo=False):
         move = Line(self.center, to_cell.center)
