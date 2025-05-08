@@ -8,7 +8,7 @@ def half_distance(x, y):
 class Cell:
     def __init__(
             self,
-            window,
+            window=None,
             has_left_wall=True,
             has_right_wall=True,
             has_top_wall=True,
